@@ -2,7 +2,6 @@ import { Router } from "express";
 import Movie from "../models/movie.js";
 
 const router = Router();
-
 router.get("/", async (_req, res) => {
   const movies = await Movie.find();
   res.json(movies);

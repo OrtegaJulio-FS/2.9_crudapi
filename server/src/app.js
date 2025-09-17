@@ -4,6 +4,8 @@ import cors from "cors";
 import morgan from "morgan";
 import "dotenv/config";
 import moviesRouter from "./routes/routes.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 
@@ -29,4 +31,14 @@ mongoose
 app.use((req, res) => {
   res.status(404).json({ error: "Not found", path: req.originalUrl });
 });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../../client/dist")));
+
+  app.get("*", (_req, res) => {
+    res.sendFile(path.resolve(__dirname, "../../client/dist", "index.html"));
+  });
+}
 export default app;

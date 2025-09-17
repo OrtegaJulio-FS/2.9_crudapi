@@ -1,0 +1,9 @@
+{
+  "name": "crud-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server/src/index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  }
+}
