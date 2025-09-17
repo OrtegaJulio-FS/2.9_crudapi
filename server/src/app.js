@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
 import "dotenv/config";
-import moviesRouter from "./routes/routes.js";
+import moviesRouter from "./routes/movies.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
