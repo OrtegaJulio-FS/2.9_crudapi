@@ -5,5 +5,9 @@
   "scripts": {
     "start": "node server/src/index.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
   }
 }
