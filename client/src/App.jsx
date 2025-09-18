@@ -6,7 +6,7 @@ function App() {
   const [form, setForm] = useState({ title: "", year: "", genre: "" });
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/movies")
+    fetch("/api/movies")
       .then((res) => res.json())
       .then(setMovies)
       .catch(console.error);
@@ -18,7 +18,7 @@ function App() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("http://localhost:8080/api/movies", {
+    const res = await fetch("/api/movies", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
