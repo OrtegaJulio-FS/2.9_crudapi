@@ -27,9 +27,6 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB error:", err));
 
-app.use((req, res) => {
-  res.status(404).json({ error: "Not found", path: req.originalUrl });
-});
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -40,4 +37,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "../../client/dist", "index.html"));
   });
 }
+app.use((req, res) => {
+  res.status(404).json({ error: "Not found", path: req.originalUrl });
+});
 export default app;
