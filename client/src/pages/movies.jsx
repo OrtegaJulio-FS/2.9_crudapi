@@ -7,14 +7,14 @@ export default function MoviesPage() {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/movies${id}`)
+    fetch(`/api/movies/${id}`)
       .then((res) => res.json())
       .then(setMovie)
       .catch(console.error);
   }, [id]);
 
   async function handleDelete() {
-    await fetch(`/api/movies${id}`, { method: "DELETE" });
+    await fetch(`/api/movies/${id}`, { method: "DELETE" });
     navigate("/");
   }
 
